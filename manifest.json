@@ -1,0 +1,14 @@
+{
+    "requires": {
+        "cockpit": "175"
+    },
+    "tools": {
+        "index": {
+            "label": "Crewdriver Demo",
+            "order": 100,
+            "keywords": [
+                { "matches": ["crewdriver", "mytool"] }
+            ]
+        }
+    }
+}

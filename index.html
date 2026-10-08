@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title translate="yes">Crewdriver Demo</title>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="theme.js"></script>
+
+    <link href="vendor/patternfly/patternfly.min.css" type="text/css" rel="stylesheet" />
+    <link href="cockpit-glue.css" type="text/css" rel="stylesheet" />
+    <link href="index.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body class="pf-v6-m-tabular-nums">
+    <div class="ct-page-fill" id="app">
+        <div class="pf-v6-c-page no-masthead-sidebar">
+            <div class="pf-v6-c-page__main-container">
+                <!-- Menu bar, built by App.menu.mount() from MENU in index.js.
+                     Sits above <main>, which does the scrolling. -->
+                <nav id="app-menu" class="app-menubar"></nav>
+
+                <main class="pf-v6-c-page__main" tabindex="-1">
+
+                    <section class="pf-v6-c-page__main-section">
+                        <!-- One card for the whole page: title header, the current pane as body, footer. Dividers blend them. -->
+                        <div class="pf-v6-c-card">
+                            <div class="pf-v6-c-card__header">
+                                <div class="pf-v6-c-card__header-main">
+                                    <div class="pf-v6-c-card__title">
+                                        <h1 class="pf-v6-c-card__title-text pf-v6-c-title pf-m-2xl">My Crewdriver App</h1>
+                                    </div>
+                                    <p class="app-muted">This would be the descriptive mini-section of your tool</p>
+                                </div>
+                            </div>
+                            <hr class="pf-v6-c-divider" />
+                            <div class="pf-v6-c-card__body">
+
+                    <div id="pane-home" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Welcome</h2>
+                            </div>
+                            <p>This is the template's home page. Replace it with your tool's landing content.</p>
+                            <p class="pf-v6-u-mt-sm">The <strong>Elements</strong> menu shows every building block this template styles, and <strong>Debug</strong> exercises the helpers in <code>functions.js</code>.</p>
+                        </div>
+                    </div>
+
+                    <div id="pane-elements" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Elements</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">Pick a category in the sub-menu (or here) to see the PatternFly pieces this template already styles.</p>
+                            <dl class="pf-v6-c-description-list pf-m-horizontal">
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term"><a href="#/elements/buttons">Buttons</a></dt><dd class="pf-v6-c-description-list__description">Variants, sizes, states, plain icon buttons</dd></div>
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term"><a href="#/elements/forms">Forms</a></dt><dd class="pf-v6-c-description-list__description">Text Controls, selects, native inputs, checks, radios, switches</dd></div>
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term"><a href="#/elements/typography">Typography</a></dt><dd class="pf-v6-c-description-list__description">Titles, paragraphs, links, lists, quotes, code</dd></div>
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term"><a href="#/elements/navigation">Navigation</a></dt><dd class="pf-v6-c-description-list__description">Breadcrumb, pagination, tabs, expandable sections</dd></div>
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term"><a href="#/elements/status">Status</a></dt><dd class="pf-v6-c-description-list__description">Alerts, labels, badges, progress, spinner</dd></div>
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term"><a href="#/elements/data">Data & Layout</a></dt><dd class="pf-v6-c-description-list__description">Tables, description lists, empty states, card parts</dd></div>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div id="pane-elements-buttons" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Variants</h2>
+                            </div>
+                            <div class="app-demo-row">
+                                <button class="pf-v6-c-button pf-m-primary" type="button">Primary</button>
+                                <button class="pf-v6-c-button pf-m-secondary" type="button">Secondary</button>
+                                <button class="pf-v6-c-button pf-m-tertiary" type="button">Tertiary</button>
+                                <button class="pf-v6-c-button pf-m-danger" type="button">Danger</button>
+                                <button class="pf-v6-c-button pf-m-warning" type="button">Warning</button>
+                                <button class="pf-v6-c-button pf-m-link" type="button">Link</button>
+                                <button class="pf-v6-c-button pf-m-plain" type="button">Plain</button>
+                            </div>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Sizes and States</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">pf-m-small shrinks a button; use the disabled attribute for a real disabled state.</p>
+                            <div class="app-demo-row">
+                                <button class="pf-v6-c-button pf-m-primary pf-m-small" type="button">Small</button>
+                                <button class="pf-v6-c-button pf-m-primary" type="button">Default</button>
+                                <button class="pf-v6-c-button pf-m-primary pf-m-disabled" type="button" aria-disabled="true">Aria-disabled</button>
+                                <button class="pf-v6-c-button pf-m-primary" type="button" disabled>Disabled</button>
+                                <button class="pf-v6-c-button pf-m-secondary pf-m-small" type="button">Small Secondary</button>
+                            </div>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Plain Icon Buttons</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">Text glyphs avoid needing an icon font. The last pair uses .app-btn-group.</p>
+                            <div class="app-demo-row">
+                                <button class="pf-v6-c-button pf-m-plain" type="button" aria-label="Move up">▲</button>
+                                <button class="pf-v6-c-button pf-m-plain" type="button" aria-label="Move down">▼</button>
+                                <button class="pf-v6-c-button pf-m-plain" type="button" aria-label="Close">×</button>
+                                <span class="app-btn-group"><button class="pf-v6-c-button pf-m-plain" type="button" aria-label="Up">▲</button><button class="pf-v6-c-button pf-m-plain" type="button" aria-label="Down">▼</button></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pane-elements-forms" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Text Controls</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">Same markup App.settings.form() builds (see its usage notes in functions.js).</p>
+                            <form class="pf-v6-c-form pf-m-horizontal app-settings" novalidate onsubmit="return false">
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-text"><span class="pf-v6-c-form__label-text">Text Input</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control"><input type="text" id="el-text" placeholder="my-host" /></span>
+                                        <div class="pf-v6-c-helper-text"><div class="pf-v6-c-helper-text__item"><span class="pf-v6-c-helper-text__item-text">Helper text sits under the control.</span></div></div>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-num"><span class="pf-v6-c-form__label-text">Number</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control"><input type="number" id="el-num" value="3" /></span>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-select"><span class="pf-v6-c-form__label-text">Select</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control"><select id="el-select"><option>debug</option><option selected>info</option><option>warning</option></select><span class="pf-v6-c-form-control__utilities"><span class="pf-v6-c-form-control__toggle-icon"><svg viewBox="0 0 320 512" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></span></span></span>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-area"><span class="pf-v6-c-form__label-text">Textarea</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control"><textarea id="el-area" rows="3" placeholder="Longer text"></textarea></span>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-ro"><span class="pf-v6-c-form__label-text">Read-only</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control pf-m-readonly"><input type="text" id="el-ro" value="cannot be edited" readonly /></span>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-dis"><span class="pf-v6-c-form__label-text">Disabled</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control pf-m-disabled"><input type="text" id="el-dis" value="disabled" disabled /></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Other Inputs</h2>
+                            </div>
+                            <form class="pf-v6-c-form pf-m-horizontal app-settings" novalidate onsubmit="return false">
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-pw"><span class="pf-v6-c-form__label-text">Password</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control"><input type="password" id="el-pw" value="secret" /></span>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-search"><span class="pf-v6-c-form__label-text">Search</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control"><input type="search" id="el-search" placeholder="Filter…" /></span>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-date"><span class="pf-v6-c-form__label-text">Date</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control"><input type="date" id="el-date" /></span>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-time"><span class="pf-v6-c-form__label-text">Time</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control"><input type="time" id="el-time" /></span>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-file"><span class="pf-v6-c-form__label-text">File</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <span class="pf-v6-c-form-control"><input type="file" id="el-file" /></span>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-range"><span class="pf-v6-c-form__label-text">Range</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <input type="range" id="el-range" min="0" max="100" value="40" />
+                                        <div class="pf-v6-c-helper-text"><div class="pf-v6-c-helper-text__item"><span class="pf-v6-c-helper-text__item-text">Unstyled native control.</span></div></div>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-color"><span class="pf-v6-c-form__label-text">Color</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <input type="color" id="el-color" value="#0066cc" />
+                                        <div class="pf-v6-c-helper-text"><div class="pf-v6-c-helper-text__item"><span class="pf-v6-c-helper-text__item-text">Unstyled native control.</span></div></div>
+                                    </div>
+                                </div>
+                                <div class="pf-v6-c-form__group">
+                                    <div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="el-ig"><span class="pf-v6-c-form__label-text">Input Group</span></label></div>
+                                    <div class="pf-v6-c-form__group-control">
+                                        <div class="pf-v6-c-input-group"><div class="pf-v6-c-input-group__item pf-m-fill"><span class="pf-v6-c-form-control"><input type="text" id="el-ig" value="8080" /></span></div><div class="pf-v6-c-input-group__item"><button class="pf-v6-c-button pf-m-control" type="button">Apply</button></div></div>
+                                        <div class="pf-v6-c-helper-text"><div class="pf-v6-c-helper-text__item"><span class="pf-v6-c-helper-text__item-text">Control plus button in one row.</span></div></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Checks, Radios and Switches</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">For a switch row with a divider and content below it, see Debug → Process Table.</p>
+                            <div class="app-demo-row">
+                                <div class="pf-v6-c-check"><input class="pf-v6-c-check__input" type="checkbox" id="el-check" checked /><label class="pf-v6-c-check__label" for="el-check">Checkbox</label></div>
+                                <div class="pf-v6-c-check"><input class="pf-v6-c-check__input" type="checkbox" id="el-check2" /><label class="pf-v6-c-check__label" for="el-check2">Unchecked</label></div>
+                                <div class="pf-v6-c-radio"><input class="pf-v6-c-radio__input" type="radio" name="el-radio" id="el-r1" checked /><label class="pf-v6-c-radio__label" for="el-r1">Radio A</label></div>
+                                <div class="pf-v6-c-radio"><input class="pf-v6-c-radio__input" type="radio" name="el-radio" id="el-r2" /><label class="pf-v6-c-radio__label" for="el-r2">Radio B</label></div>
+                                <label class="pf-v6-c-switch" for="el-switch"><input id="el-switch" class="pf-v6-c-switch__input" type="checkbox" checked /><span class="pf-v6-c-switch__toggle"></span><span class="pf-v6-c-switch__label">Switch</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pane-elements-typography" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Titles</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">pf-v6-c-title with a size modifier; the heading level and the size are independent.</p>
+                            <h1 class="pf-v6-c-title pf-m-2xl">Heading Level 1 (pf-m-2xl)</h1>
+                            <h2 class="pf-v6-c-title pf-m-xl">Heading Level 2 (pf-m-xl)</h2>
+                            <h3 class="pf-v6-c-title pf-m-lg">Heading Level 3 (pf-m-lg)</h3>
+                            <h4 class="pf-v6-c-title pf-m-md">Heading Level 4 (pf-m-md)</h4>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Body Text</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">Wrap running text in .pf-v6-c-content so plain p / ul / ol / blockquote / pre get PatternFly styling.</p>
+                            <div class="pf-v6-c-content">
+                                <p>A paragraph with <strong>strong</strong>, <em>emphasis</em>, <mark>mark</mark>, <small>small</small>, <abbr title="Hypertext Markup Language">HTML</abbr>, <code>inline code</code>, <kbd>Ctrl</kbd> + <kbd>K</kbd> and a <a href="#/elements/typography">link</a>.</p>
+                                <ul><li>Unordered item</li><li>Another item<ul><li>Nested item</li></ul></li></ul>
+                                <ol><li>First</li><li>Second</li></ol>
+                                <blockquote>A blockquote, for a quoted passage.</blockquote>
+                                <hr />
+                                <pre>A pre block keeps    spacing
+and line breaks.</pre>
+                            </div>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Code Block</h2>
+                            </div>
+                            <div class="pf-v6-c-code-block">
+                                <div class="pf-v6-c-code-block__content"><pre class="pf-v6-c-code-block__pre"><code class="pf-v6-c-code-block__code">cockpit.spawn(["uname", "-r"]).then(function (out) { console.log(out) })</code></pre></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pane-elements-navigation" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Breadcrumb</h2>
+                            </div>
+                            <nav class="pf-v6-c-breadcrumb" aria-label="Breadcrumb"><ol class="pf-v6-c-breadcrumb__list">
+                                <li class="pf-v6-c-breadcrumb__item"><a class="pf-v6-c-breadcrumb__link" href="#/elements">Elements</a></li>
+                                <li class="pf-v6-c-breadcrumb__item"><span class="pf-v6-c-breadcrumb__item-divider">/</span><a class="pf-v6-c-breadcrumb__link" href="#/elements/navigation">Navigation</a></li>
+                                <li class="pf-v6-c-breadcrumb__item"><span class="pf-v6-c-breadcrumb__item-divider">/</span><a class="pf-v6-c-breadcrumb__link pf-m-current" href="#/elements/navigation" aria-current="page">Breadcrumb</a></li>
+                            </ol></nav>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Pagination</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">Static markup: wire the buttons to your own paging.</p>
+                            <div class="pf-v6-c-pagination">
+                                <div class="pf-v6-c-pagination__total-items"><b>1 - 10</b> of <b>42</b></div>
+                                <nav class="pf-v6-c-pagination__nav" aria-label="Pagination">
+                                    <div class="pf-v6-c-pagination__nav-control pf-m-prev"><button class="pf-v6-c-button pf-m-plain" type="button" aria-label="Previous page" disabled>‹</button></div>
+                                    <div class="pf-v6-c-pagination__nav-control pf-m-next"><button class="pf-v6-c-button pf-m-plain" type="button" aria-label="Next page">›</button></div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Tabs</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">Switching is handled by App.widgets (data-app-tabs / data-app-tab), no custom JS needed.</p>
+                            <div data-app-tabs>
+                                <div class="pf-v6-c-tabs"><ul class="pf-v6-c-tabs__list" role="tablist"><li class="pf-v6-c-tabs__item pf-m-current" role="presentation"><button class="pf-v6-c-tabs__link" type="button" role="tab" aria-selected="true" aria-controls="el-tab-1" data-app-tab="el-tab-1"><span class="pf-v6-c-tabs__item-text">Overview</span></button></li><li class="pf-v6-c-tabs__item" role="presentation"><button class="pf-v6-c-tabs__link" type="button" role="tab" aria-selected="false" aria-controls="el-tab-2" data-app-tab="el-tab-2"><span class="pf-v6-c-tabs__item-text">Details</span></button></li><li class="pf-v6-c-tabs__item" role="presentation"><button class="pf-v6-c-tabs__link" type="button" role="tab" aria-selected="false" aria-controls="el-tab-3" data-app-tab="el-tab-3"><span class="pf-v6-c-tabs__item-text">Logs</span></button></li></ul></div>
+                                <div id="el-tab-1" role="tabpanel" class="pf-v6-u-mt-md">Overview content.</div>
+                                <div id="el-tab-2" role="tabpanel" class="pf-v6-u-mt-md" hidden>Details content.</div>
+                                <div id="el-tab-3" role="tabpanel" class="pf-v6-u-mt-md" hidden>Logs content.</div>
+                            </div>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Expandable Section</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">data-app-expand on the toggle points at the content's id. data-app-text-expanded swaps the toggle text while it is open.</p>
+                            <div class="pf-v6-c-expandable-section">
+                                <button class="pf-v6-c-expandable-section__toggle" type="button" aria-expanded="false" data-app-expand="el-exp-1" data-app-text-expanded="Show Less"><span class="pf-v6-c-expandable-section__toggle-text">Show More</span></button>
+                                <div id="el-exp-1" class="pf-v6-c-expandable-section__content" hidden>Hidden until the toggle is pressed.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pane-elements-status" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Inline Alerts</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">Built from code with App.alerts.inline() / App.alerts.toast() (Debug → Toasts).</p>
+                            <div class="pf-v6-c-alert pf-m-inline pf-m-success pf-v6-u-mb-md" aria-label="success alert">
+                                <div class="pf-v6-c-alert__icon app-alert__icon" aria-hidden="true">✓</div>
+                                <p class="pf-v6-c-alert__title"><span class="pf-v6-screen-reader">success alert: </span>Success Alert</p>
+                                <div class="pf-v6-c-alert__description">Something worked.</div>
+                            </div>
+                            <div class="pf-v6-c-alert pf-m-inline pf-m-info pf-v6-u-mb-md" aria-label="info alert">
+                                <div class="pf-v6-c-alert__icon app-alert__icon" aria-hidden="true">i</div>
+                                <p class="pf-v6-c-alert__title"><span class="pf-v6-screen-reader">info alert: </span>Info Alert</p>
+                                <div class="pf-v6-c-alert__description">Something to know.</div>
+                            </div>
+                            <div class="pf-v6-c-alert pf-m-inline pf-m-warning pf-v6-u-mb-md" aria-label="warning alert">
+                                <div class="pf-v6-c-alert__icon app-alert__icon" aria-hidden="true">!</div>
+                                <p class="pf-v6-c-alert__title"><span class="pf-v6-screen-reader">warning alert: </span>Warning Alert</p>
+                                <div class="pf-v6-c-alert__description">Something to check.</div>
+                            </div>
+                            <div class="pf-v6-c-alert pf-m-inline pf-m-danger pf-v6-u-mb-md" aria-label="danger alert">
+                                <div class="pf-v6-c-alert__icon app-alert__icon" aria-hidden="true">!</div>
+                                <p class="pf-v6-c-alert__title"><span class="pf-v6-screen-reader">danger alert: </span>Danger Alert</p>
+                                <div class="pf-v6-c-alert__description">Something failed.</div>
+                            </div>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Labels and Badges</h2>
+                            </div>
+                            <div class="app-demo-row">
+                                <span class="pf-v6-c-label "><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Grey</span></span></span>
+                                <span class="pf-v6-c-label pf-m-blue"><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Blue</span></span></span>
+                                <span class="pf-v6-c-label pf-m-green"><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Green</span></span></span>
+                                <span class="pf-v6-c-label pf-m-orange"><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Orange</span></span></span>
+                                <span class="pf-v6-c-label pf-m-red"><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Red</span></span></span>
+                                <span class="pf-v6-c-label pf-m-purple"><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Purple</span></span></span>
+                                <span class="pf-v6-c-label pf-m-teal"><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Teal</span></span></span>
+                            </div>
+                            <div class="app-demo-row">
+                                <span class="pf-v6-c-label pf-m-outline pf-m-blue"><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Blue Outline</span></span></span>
+                                <span class="pf-v6-c-label pf-m-outline pf-m-green"><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Green Outline</span></span></span>
+                                <span class="pf-v6-c-label pf-m-outline pf-m-red"><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Red Outline</span></span></span>
+                            </div>
+                            <div class="app-demo-row">
+                                <span class="pf-v6-c-badge pf-m-read">7</span>
+                                <span class="pf-v6-c-badge pf-m-unread">12</span>
+                            </div>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Progress and Spinner</h2>
+                            </div>
+                            <div class="pf-v6-c-progress  pf-v6-u-mb-md" id="el-p1">
+                                <div class="pf-v6-c-progress__description" id="el-p1-d">Default</div>
+                                <div class="pf-v6-c-progress__status" aria-hidden="true"><span class="pf-v6-c-progress__measure">40%</span></div>
+                                <div class="pf-v6-c-progress__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" aria-labelledby="el-p1-d"><div class="pf-v6-c-progress__indicator" style="width:40%"></div></div>
+                            </div>
+                            <div class="pf-v6-c-progress pf-m-success pf-v6-u-mb-md" id="el-p2">
+                                <div class="pf-v6-c-progress__description" id="el-p2-d">Success</div>
+                                <div class="pf-v6-c-progress__status" aria-hidden="true"><span class="pf-v6-c-progress__measure">100%</span></div>
+                                <div class="pf-v6-c-progress__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-labelledby="el-p2-d"><div class="pf-v6-c-progress__indicator" style="width:100%"></div></div>
+                            </div>
+                            <div class="pf-v6-c-progress pf-m-warning pf-v6-u-mb-md" id="el-p3">
+                                <div class="pf-v6-c-progress__description" id="el-p3-d">Warning</div>
+                                <div class="pf-v6-c-progress__status" aria-hidden="true"><span class="pf-v6-c-progress__measure">70%</span></div>
+                                <div class="pf-v6-c-progress__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-labelledby="el-p3-d"><div class="pf-v6-c-progress__indicator" style="width:70%"></div></div>
+                            </div>
+                            <div class="pf-v6-c-progress pf-m-danger pf-v6-u-mb-md" id="el-p4">
+                                <div class="pf-v6-c-progress__description" id="el-p4-d">Danger</div>
+                                <div class="pf-v6-c-progress__status" aria-hidden="true"><span class="pf-v6-c-progress__measure">25%</span></div>
+                                <div class="pf-v6-c-progress__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" aria-labelledby="el-p4-d"><div class="pf-v6-c-progress__indicator" style="width:25%"></div></div>
+                            </div>
+                            <div class="app-spinner-demo">
+                                <svg class="pf-v6-c-spinner pf-m-xl" role="progressbar" viewBox="0 0 100 100" aria-label="Loading"><circle class="pf-v6-c-spinner__path" cx="50" cy="50" r="45" fill="none" /></svg>
+                                <span class="app-muted">Spinner</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pane-elements-data" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Tables</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">Sortable tables come from App.table.create() (Debug → Process Table); this is the static markup with the divider helpers.</p>
+                            <table class="pf-v6-c-table pf-m-compact pf-m-grid-md" role="grid">
+                                <caption class="pf-v6-c-table__caption">Table with a Section Divider</caption>
+                                <thead class="pf-v6-c-table__thead"><tr class="pf-v6-c-table__tr"><th class="pf-v6-c-table__th" scope="col">Name</th><th class="pf-v6-c-table__th" scope="col">Key</th><th class="pf-v6-c-table__th app-table__num" scope="col">Value</th></tr></thead>
+                                <tbody class="pf-v6-c-table__tbody">
+                                    <tr class="pf-v6-c-table__tr app-table__divider"><th class="pf-v6-c-table__th" colspan="3" scope="colgroup">Group A</th></tr>
+                                    <tr class="pf-v6-c-table__tr"><td class="pf-v6-c-table__td" data-label="Name">Alpha</td><td class="pf-v6-c-table__td app-mono" data-label="Key">a / one</td><td class="pf-v6-c-table__td app-table__num" data-label="Value">12</td></tr>
+                                    <tr class="pf-v6-c-table__tr app-table__row--muted"><td class="pf-v6-c-table__td" data-label="Name">Beta (muted)</td><td class="pf-v6-c-table__td app-mono" data-label="Key">a / two</td><td class="pf-v6-c-table__td app-table__num" data-label="Value">7</td></tr>
+                                    <tr class="pf-v6-c-table__tr app-table__divider"><th class="pf-v6-c-table__th" colspan="3" scope="colgroup">Group B</th></tr>
+                                    <tr class="pf-v6-c-table__tr"><td class="pf-v6-c-table__td" data-label="Name">Gamma</td><td class="pf-v6-c-table__td app-mono" data-label="Key">b / one</td><td class="pf-v6-c-table__td app-table__num" data-label="Value">231</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Description List</h2>
+                            </div>
+                            <dl class="pf-v6-c-description-list pf-m-horizontal">
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term">Hostname</dt><dd class="pf-v6-c-description-list__description">exoverse</dd></div>
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term">Kernel</dt><dd class="pf-v6-c-description-list__description">6.12.0</dd></div>
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term">Status</dt><dd class="pf-v6-c-description-list__description"><span class="pf-v6-c-label pf-m-green"><span class="pf-v6-c-label__content"><span class="pf-v6-c-label__text">Running</span></span></span></dd></div>
+                            </dl>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Empty State</h2>
+                            </div>
+                            <div class="pf-v6-c-empty-state pf-m-sm">
+                                <div class="pf-v6-c-empty-state__content">
+                                    <h3 class="pf-v6-c-title pf-m-md">Nothing Here Yet</h3>
+                                    <div class="pf-v6-c-empty-state__body">Use an empty state when a list has no rows.</div>
+                                    <div class="pf-v6-c-empty-state__footer"><div class="pf-v6-c-empty-state__actions"><button class="pf-v6-c-button pf-m-primary" type="button">Add One</button></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Card Parts</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">The page itself is one card: header (title), body (the panes) and footer, joined by dividers.</p>
+                            <div class="pf-v6-c-card">
+                                <div class="pf-v6-c-card__header"><div class="pf-v6-c-card__header-main"><div class="pf-v6-c-card__title"><h3 class="pf-v6-c-card__title-text">A Standalone Card</h3></div></div><div class="pf-v6-c-card__actions"><span class="app-muted">Updated 12:00:00</span></div></div>
+                                <hr class="pf-v6-c-divider" />
+                                <div class="pf-v6-c-card__body">Header, divider, body and footer, for a card nested inside the page's own.</div>
+                                <hr class="pf-v6-c-divider" />
+                                <div class="pf-v6-c-card__footer">Footer</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="pane-debug" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Debug</h2>
+                            </div>
+                            <button id="test-events-btn" class="pf-v6-c-button pf-m-secondary" type="button">
+                                Test Events
+                            </button>
+                            <dl id="test-events-output" class="pf-v6-c-description-list pf-v6-u-mt-md" hidden>
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term">Client-side Execution</dt><dd id="test-events-client-uuid" class="pf-v6-c-description-list__description"></dd></div>
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term">Server-side Execution (same with 'dd')</dt><dd id="test-events-system-uuid" class="pf-v6-c-description-list__description"></dd></div>
+                                <div class="pf-v6-c-description-list__group"><dt class="pf-v6-c-description-list__term">Result</dt><dd id="test-events-result" class="pf-v6-c-description-list__description"></dd></div>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div id="pane-debug-settings" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Settings Form</h2>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">Built by App.settings.form() in functions.js. Change something and Apply to see the diff modal; values are kept in memory only.</p>
+                            <div id="settings-demo"></div>
+                        </div>
+                    </div>
+
+                    <div id="pane-debug-table" class="app-pane" hidden>
+                        <div class="app-block">
+                            <div class="app-block__header">
+                                <h2 class="app-block__title">Process Table</h2>
+                                <span id="process-updated" class="app-muted" aria-live="off"></span>
+                            </div>
+                            <p class="app-muted pf-v6-u-mb-md">Built by App.table.create() and, while auto-refresh is on, refreshed every 5s by App.poll() only while this pane is showing. Click a header to sort.</p>
+                            <!-- Switch row: switch, live hint, action button; a divider separates it from the content. -->
+                            <div class="app-card-switch">
+                                <label class="pf-v6-c-switch" for="process-auto">
+                                    <input id="process-auto" class="pf-v6-c-switch__input" type="checkbox" aria-describedby="process-auto-hint" checked />
+                                    <span class="pf-v6-c-switch__toggle"></span>
+                                    <span class="pf-v6-c-switch__label">Auto-refresh</span>
+                                </label>
+                                <span id="process-auto-hint" class="app-muted" aria-live="polite"></span>
+                                <button id="process-refresh-btn" class="pf-v6-c-button pf-m-secondary pf-m-small" type="button">Refresh</button>
+                            </div>
+                            <hr class="pf-v6-c-divider pf-v6-u-my-md" />
+                            <div id="process-alert"></div>
+                            <div id="process-table"></div>
+                        </div>
+                    </div>
+
+                            </div>
+                            <hr class="pf-v6-c-divider" />
+                            <div class="pf-v6-c-card__footer app-footer">
+                                <span>And for more info.. you can go <a href="https://github.com/Crewpit/crewdriver" target="_blank" rel="noopener noreferrer">here!</a> :)</span>
+                                <span class="app-muted">Crewdriver v1.0</span>
+                            </div>
+                        </div>
+                    </section>
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Served by cockpit-ws itself (base1 package), not shipped in this package.
+             Needed for cockpit.* (cockpit.file, cockpit.spawn, cockpit.gettext, ...) to work,
+             and for the shell to be able to talk to this page at all. -->
+    <script src="../base1/cockpit.js"></script>
+    <script src="functions.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
